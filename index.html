@@ -29,7 +29,7 @@
       <p>© 2025 My Personal Website</p>
     </footer>
     <script>
-      // Fetch data from the Rick and Morty API for character 1 (Rick Sanchez)
+      // Fetch data
       fetch('https://rickandmortyapi.com/api/character/1')
         .then(response => {
           if (!response.ok) {
@@ -38,7 +38,7 @@
           return response.json();
         })
         .then(data => {
-          // Create HTML content using the fetched data
+          // create HTML content
           const characterHTML = `
             <img src="${data.image}" alt="${data.name}" style="width:200px; border-radius:10px;">
             <h3>${data.name}</h3>
@@ -46,7 +46,6 @@
             <p><strong>Species:</strong> ${data.species}</p>
             <p><strong>Location:</strong> ${data.location.name}</p>
           `;
-          // Update the element with id "api-data"
           document.getElementById('api-data').innerHTML = characterHTML;
         })
         .catch(error => {
@@ -55,5 +54,4 @@
         });
     </script>
   </body>
-
 </html>
