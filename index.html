@@ -28,7 +28,9 @@
           <summary>A funny fact about me enclosed here!</summary>
           <p>I am a huge fan of ...</p>
           <section id="rick-and-morty">
-            <h2>Rick and Morty!!!</h2>
+            <div id="fancy-area">
+              <h2>Rick and Morty!!!</h2>
+            </div>
             <div id="api-data">Loading character data...</div>
           </section>
         </details>
@@ -64,6 +66,24 @@
           document.getElementById('api-data').innerHTML = 'Failed to load character data.';
         });
     </script>
-    
+
+    <script>
+      // interaction using mousemove event
+      document.addEventListener('DOMContentLoaded', () => {
+        const fancyArea = document.getElementById('fancy-area');
+        fancyArea.addEventListener('mousemove', (event) => {
+          const xPos = event.offsetX;
+          const yPos = event.offsetY;
+          const width = fancyArea.offsetWidth;
+          const height = fancyArea.offsetHeight;
+          const r = Math.round((xPos / width) * 255);
+          const g = Math.round((yPos / height) * 255);
+          const b = 150; 
+          fancyArea.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+          fancyArea.textContent = `Mouse at X: ${xPos}, Y: ${yPos}`;
+        });
+      });
+    </script>
+
   </body>
 </html>
