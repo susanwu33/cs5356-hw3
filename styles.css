@@ -57,4 +57,19 @@
     background-position: center, center;
     margin: 0 auto; 
   }
-  
+
+  details {
+    max-width: 600px;
+    margin: 0 auto 40px; 
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+
+  #rick-and-morty {
+    margin-top: 20px;
+    text-align: center;
+  }
+  #api-data {
+    margin-top: 10px;
+  }
