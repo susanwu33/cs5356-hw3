@@ -19,7 +19,6 @@ body {
     height: 200px;     
     object-fit: cover; 
     border-radius: 50%; 
-    clip-path: circle(50% at 50% 50%);
   }
   .container {
     display: flex;
@@ -29,5 +28,15 @@ body {
   .content {
     flex: 1 1 375px; /* ensures minimum width and wraps on smaller screens */
     margin: 10px;
+  }
+  .personal-photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-image: url('myphoto.jpg'), linear-gradient(45deg, rgba(255,0,0,0.5), rgba(0,0,255,0.5));
+    background-blend-mode: multiply;
+    background-size: cover, cover;
+    background-position: center, center;
+    margin: 0 auto; /* centers the div horizontally */
   }
   
