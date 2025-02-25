@@ -1,4 +1,4 @@
-body {
+  body {
     display: flex;
     flex-direction: column;
     margin: 0;
@@ -11,8 +11,15 @@ body {
     text-align: center;
     padding: 10px;
   }
-  main, footer {
+  main {
+    flex: 1; 
     padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto; 
+  } 
+  footer {
+    padding: 20px;
+    text-align: center;
   }
   img {
     width: 200px;  
@@ -26,8 +33,16 @@ body {
     justify-content: center;
   }
   .content {
-    flex: 1 1 375px; /* ensures minimum width and wraps on smaller screens */
+    flex: 1 1 375px; 
     margin: 10px;
+  }
+  .bio {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 20px;       
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
   }
   .personal-photo {
     width: 200px;
@@ -37,6 +52,6 @@ body {
     background-blend-mode: multiply;
     background-size: cover, cover;
     background-position: center, center;
-    margin: 0 auto; /* centers the div horizontally */
+    margin: 0 auto; 
   }
   
