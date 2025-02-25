@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Personal Homepage</title>
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
+
     <header>
       <h1>Welcome to Susan Wu's Homepage</h1>
     </header>
+
     <main>
       <section class="bio">
         <div class="personal-photo"></div>
@@ -18,18 +22,23 @@
           <p>I'm busy constructing my personal website...</p>
         </div>
       </section>
-      <details>
-        <summary>A funny fact about me enclosed here!</summary>
-        <p>I am a huge fan of ...</p>
-        <section id="rick-and-morty">
-          <h2>Rick and Morty!!!</h2>
-          <div id="api-data">Loading character data...</div>
-        </section>
-      </details>
+
+      <div class="fandom">
+        <details>
+          <summary>A funny fact about me enclosed here!</summary>
+          <p>I am a huge fan of ...</p>
+          <section id="rick-and-morty">
+            <h2>Rick and Morty!!!</h2>
+            <div id="api-data">Loading character data...</div>
+          </section>
+        </details>
+      </div>
     </main>
+
     <footer>
       <p>© 2025 My Personal Website</p>
     </footer>
+
     <script>
       // Fetch data
       fetch('https://rickandmortyapi.com/api/character/1')
@@ -55,5 +64,6 @@
           document.getElementById('api-data').innerHTML = 'Failed to load character data.';
         });
     </script>
+    
   </body>
 </html>

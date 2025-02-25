@@ -58,6 +58,14 @@
     margin: 0 auto; 
   }
 
+  summary {
+    cursor: pointer;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+
   details {
     max-width: 600px;
     margin: 0 auto 40px; 
