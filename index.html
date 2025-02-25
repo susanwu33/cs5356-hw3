@@ -76,9 +76,9 @@
           const yPos = event.offsetY;
           const width = fancyArea.offsetWidth;
           const height = fancyArea.offsetHeight;
-          const r = Math.round((xPos / width) * 255);
-          const g = Math.round((yPos / height) * 255);
-          const b = 150; 
+          const r = 180 + Math.round((xPos / width) * 75);
+          const g = 180 + Math.round((yPos / height) * 75);
+          const b = 2200; 
           fancyArea.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
         });
       });
