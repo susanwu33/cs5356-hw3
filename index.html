@@ -27,14 +27,15 @@
         <details>
           <summary>A funny fact about me enclosed here!</summary>
           <p>I am a huge fan of ...</p>
+          
           <section id="rick-and-morty">
-            <div id="fancy-area">
-              <h2>Rick and Morty!!!</h2>
-            </div>
+            <h2>Rick and Morty!!!</h2>
+            <p class="mouse-prompt">Move your mouse here to change color!</p>
             <div id="api-data">Loading character data...</div>
           </section>
         </details>
       </div>
+
     </main>
 
     <footer>
@@ -42,45 +43,46 @@
     </footer>
 
     <script>
-      // Fetch data
-      fetch('https://rickandmortyapi.com/api/character/1')
-        .then(response => {
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }
-          return response.json();
-        })
-        .then(data => {
-          // create HTML content
-          const characterHTML = `
-            <img src="${data.image}" alt="${data.name}" style="width:200px; border-radius:10px;">
-            <h3>${data.name}</h3>
-            <p><strong>Status:</strong> ${data.status}</p>
-            <p><strong>Species:</strong> ${data.species}</p>
-            <p><strong>Location:</strong> ${data.location.name}</p>
-          `;
-          document.getElementById('api-data').innerHTML = characterHTML;
-        })
-        .catch(error => {
-          console.error('Error fetching the character data:', error);
-          document.getElementById('api-data').innerHTML = 'Failed to load character data.';
-        });
-    </script>
-
-    <script>
-      // interaction using mousemove event
       document.addEventListener('DOMContentLoaded', () => {
-        const fancyArea = document.getElementById('fancy-area');
-        fancyArea.addEventListener('mousemove', (event) => {
-          const xPos = event.offsetX;
-          const yPos = event.offsetY;
-          const width = fancyArea.offsetWidth;
-          const height = fancyArea.offsetHeight;
+        const rickSection = document.getElementById('rick-and-morty');
+
+        // Mousemove logic
+        rickSection.addEventListener('mousemove', (event) => {
+          const rect = rickSection.getBoundingClientRect();
+          const xPos = event.clientX - rect.left;
+          const yPos = event.clientY - rect.top;
+          const width = rickSection.offsetWidth;
+          const height = rickSection.offsetHeight;
+
           const r = 180 + Math.round((xPos / width) * 75);
           const g = 180 + Math.round((yPos / height) * 75);
-          const b = 2200; 
-          fancyArea.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+          const b = 220;
+
+          rickSection.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
         });
+
+        // Fetch Rick and Morty data
+        fetch('https://rickandmortyapi.com/api/character/1')
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+            return response.json();
+          })
+          .then(data => {
+            const characterHTML = `
+              <img src="${data.image}" alt="${data.name}" style="width:200px; border-radius:10px;">
+              <h3>${data.name}</h3>
+              <p><strong>Status:</strong> ${data.status}</p>
+              <p><strong>Species:</strong> ${data.species}</p>
+              <p><strong>Location:</strong> ${data.location.name}</p>
+            `;
+            document.getElementById('api-data').innerHTML = characterHTML;
+          })
+          .catch(error => {
+            console.error('Error fetching character data:', error);
+            document.getElementById('api-data').innerHTML = 'Failed to load character data.';
+          });
       });
     </script>
 
